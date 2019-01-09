@@ -14,6 +14,8 @@
 		171C2FC721E692A50057A3D3 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171C2FC621E692A50057A3D3 /* BaseCoordinator.swift */; };
 		171C2FCB21E694440057A3D3 /* EventsListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171C2FCA21E694440057A3D3 /* EventsListCoordinator.swift */; };
 		171C2FCD21E695E60057A3D3 /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171C2FCC21E695E60057A3D3 /* AppService.swift */; };
+		171C2FD021E699AE0057A3D3 /* EventsListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171C2FCF21E699AE0057A3D3 /* EventsListService.swift */; };
+		171C2FD321E69A560057A3D3 /* EventsListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171C2FD221E69A560057A3D3 /* EventsListModel.swift */; };
 		1740A99E21E68EFA00A7CABC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1740A99D21E68EFA00A7CABC /* AppDelegate.swift */; };
 		1740A9A521E68EFB00A7CABC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1740A9A421E68EFB00A7CABC /* Assets.xcassets */; };
 		1740A9A821E68EFB00A7CABC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1740A9A621E68EFB00A7CABC /* LaunchScreen.storyboard */; };
@@ -38,6 +40,8 @@
 		171C2FC621E692A50057A3D3 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		171C2FCA21E694440057A3D3 /* EventsListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsListCoordinator.swift; sourceTree = "<group>"; };
 		171C2FCC21E695E60057A3D3 /* AppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
+		171C2FCF21E699AE0057A3D3 /* EventsListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsListService.swift; sourceTree = "<group>"; };
+		171C2FD221E69A560057A3D3 /* EventsListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsListModel.swift; sourceTree = "<group>"; };
 		1740A99A21E68EFA00A7CABC /* GreenChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreenChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1740A99D21E68EFA00A7CABC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1740A9A421E68EFB00A7CABC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -118,9 +122,27 @@
 		171C2FC921E694270057A3D3 /* EventsList */ = {
 			isa = PBXGroup;
 			children = (
+				171C2FD121E69A480057A3D3 /* Model */,
+				171C2FCE21E6999F0057A3D3 /* Service */,
 				171C2FCA21E694440057A3D3 /* EventsListCoordinator.swift */,
 			);
 			path = EventsList;
+			sourceTree = "<group>";
+		};
+		171C2FCE21E6999F0057A3D3 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				171C2FCF21E699AE0057A3D3 /* EventsListService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		171C2FD121E69A480057A3D3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				171C2FD221E69A560057A3D3 /* EventsListModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		1740A99121E68EFA00A7CABC = {
@@ -308,7 +330,9 @@
 				171C2FC421E692520057A3D3 /* AppCoordinator.swift in Sources */,
 				171C2FC721E692A50057A3D3 /* BaseCoordinator.swift in Sources */,
 				1740A99E21E68EFA00A7CABC /* AppDelegate.swift in Sources */,
+				171C2FD021E699AE0057A3D3 /* EventsListService.swift in Sources */,
 				171C2FCB21E694440057A3D3 /* EventsListCoordinator.swift in Sources */,
+				171C2FD321E69A560057A3D3 /* EventsListModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

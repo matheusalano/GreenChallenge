@@ -21,14 +21,14 @@ enum ServiceError: Error {
 
 class AppService {
     
-    private let baseUrl = "http://5b840ba5db24a100142dcd8c.mockapi.io/"
+    private let baseUrl = "http://5b840ba5db24a100142dcd8c.mockapi.io/api/"
     private let session: URLSession
     
     init(session: URLSession = URLSession.shared) {
         self.session = session
     }
     
-    func request<T: Codable>(path: String, method: HTTPMethod, parameters: [String: Any]? = nil) -> Observable<T> {
+    func request<T: Decodable>(path: String, method: HTTPMethod, parameters: [String: Any]? = nil) -> Observable<T> {
         guard let url = URL(string: baseUrl + path) else { return Observable.error(ServiceError.invalidURL) }
         var urlRequest = URLRequest(url: url)
         
