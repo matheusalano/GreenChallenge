@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1703B06E21E7D8DD001B0509 /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1703B06D21E7D8DD001B0509 /* RxDataSources.framework */; };
+		1703B06F21E7DC42001B0509 /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1703B06D21E7D8DD001B0509 /* RxDataSources.framework */; };
+		1703B07021E7DC42001B0509 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 171C2FE721E6D2E10057A3D3 /* Nuke.framework */; };
+		1703B07121E7DC42001B0509 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 171C2FB921E690A60057A3D3 /* RxCocoa.framework */; };
+		1703B07221E7DC42001B0509 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 171C2FBA21E690A60057A3D3 /* RxSwift.framework */; };
+		1703B07321E7DC42001B0509 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 171C2FBB21E690A60057A3D3 /* SnapKit.framework */; };
+		1703B07521E7DDA7001B0509 /* RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1703B07421E7DDA6001B0509 /* RxTest.framework */; };
+		1703B07821E7E77F001B0509 /* UIViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1703B07721E7E77E001B0509 /* UIViewController+Alerts.swift */; };
 		171C2FBC21E690A60057A3D3 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 171C2FB921E690A60057A3D3 /* RxCocoa.framework */; };
 		171C2FBD21E690A60057A3D3 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 171C2FBA21E690A60057A3D3 /* RxSwift.framework */; };
 		171C2FBE21E690A60057A3D3 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 171C2FBB21E690A60057A3D3 /* SnapKit.framework */; };
@@ -39,6 +47,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1703B06D21E7D8DD001B0509 /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxDataSources.framework; path = Carthage/Build/iOS/RxDataSources.framework; sourceTree = "<group>"; };
+		1703B07421E7DDA6001B0509 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
+		1703B07721E7E77E001B0509 /* UIViewController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alerts.swift"; sourceTree = "<group>"; };
 		171C2FB921E690A60057A3D3 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		171C2FBA21E690A60057A3D3 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		171C2FBB21E690A60057A3D3 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
@@ -69,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1703B06E21E7D8DD001B0509 /* RxDataSources.framework in Frameworks */,
 				171C2FBC21E690A60057A3D3 /* RxCocoa.framework in Frameworks */,
 				171C2FE821E6D2E10057A3D3 /* Nuke.framework in Frameworks */,
 				171C2FBD21E690A60057A3D3 /* RxSwift.framework in Frameworks */,
@@ -80,15 +92,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1703B07221E7DC42001B0509 /* RxSwift.framework in Frameworks */,
+				1703B07121E7DC42001B0509 /* RxCocoa.framework in Frameworks */,
+				1703B07521E7DDA7001B0509 /* RxTest.framework in Frameworks */,
+				1703B06F21E7DC42001B0509 /* RxDataSources.framework in Frameworks */,
+				1703B07021E7DC42001B0509 /* Nuke.framework in Frameworks */,
+				1703B07321E7DC42001B0509 /* SnapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1703B07621E7E76B001B0509 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1703B07721E7E77E001B0509 /* UIViewController+Alerts.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		171C2FB821E690A60057A3D3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1703B07421E7DDA6001B0509 /* RxTest.framework */,
+				1703B06D21E7D8DD001B0509 /* RxDataSources.framework */,
 				171C2FE721E6D2E10057A3D3 /* Nuke.framework */,
 				171C2FB921E690A60057A3D3 /* RxCocoa.framework */,
 				171C2FBA21E690A60057A3D3 /* RxSwift.framework */,
@@ -120,6 +148,7 @@
 		171C2FC521E692980057A3D3 /* General */ = {
 			isa = PBXGroup;
 			children = (
+				1703B07621E7E76B001B0509 /* Extensions */,
 				171C2FC821E693470057A3D3 /* Classes */,
 			);
 			path = General;
@@ -387,6 +416,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				171C2FCD21E695E60057A3D3 /* AppService.swift in Sources */,
+				1703B07821E7E77F001B0509 /* UIViewController+Alerts.swift in Sources */,
 				171C2FD621E69E820057A3D3 /* EventsListViewModel.swift in Sources */,
 				171C2FC421E692520057A3D3 /* AppCoordinator.swift in Sources */,
 				171C2FC721E692A50057A3D3 /* BaseCoordinator.swift in Sources */,
@@ -601,6 +631,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S267HCZ2HP;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = GreenChallengeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -622,6 +656,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S267HCZ2HP;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = GreenChallengeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

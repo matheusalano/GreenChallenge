@@ -52,7 +52,7 @@ class EventTableViewCell: UITableViewCell {
         }
     }
     
-    func configure(event: Event) {
+    func configure(event: GCEvent) {
         titleLabel.text = event.title
         if let url = URL(string: event.image) {
             Nuke.loadImage(with: url, into: logoImageView)

@@ -11,11 +11,13 @@ import RxSwift
 
 final class EventsListViewModel {
     
-    let selectEvent: AnyObserver<Event>
+    // MARK: - Inputs
+    let selectEvent: AnyObserver<GCEvent>
     let reload: AnyObserver<Void>
     
+    // MARK: - Outputs
     let openEventDetail: Observable<String>
-    let events: Observable<[Event]>
+    let events: Observable<[GCEvent]>
     let alert: Observable<String>
     
     init(service: EventsListServiceProtocol = EventsListService()) {
@@ -34,7 +36,7 @@ final class EventsListViewModel {
                 })
         })
         
-        let _selectEvent = PublishSubject<Event>()
+        let _selectEvent = PublishSubject<GCEvent>()
         selectEvent = _selectEvent.asObserver()
         openEventDetail = _selectEvent.asObservable().map({ $0.id })
     }

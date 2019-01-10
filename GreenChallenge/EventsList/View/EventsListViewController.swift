@@ -57,19 +57,21 @@ class EventsListViewController: UIViewController {
     }
 
     private func setupBindinds() {
-        viewModel.events
-        .observeOn(MainScheduler.instance)
+        viewModel.events.observeOn(MainScheduler.instance)
             .do(onNext: { [weak self] _ in self?.refreshControl.endRefreshing() })
             .bind(to: tableView.rx.items(cellIdentifier: EventTableViewCell.description(), cellType: EventTableViewCell.self)) { (_, event, cell) in
                 cell.configure(event: event)
-        }
-        .disposed(by: disposeBag)
+            }
+            .disposed(by: disposeBag)
+        
+        viewModel.alert.subscribe(onNext: { [weak self] in self?.showErrorAlert(message: $0) })
+            .disposed(by: disposeBag)
         
         refreshControl.rx.controlEvent(.valueChanged)
             .bind(to: viewModel.reload)
             .disposed(by: disposeBag)
         
-        tableView.rx.modelSelected(Event.self)
+        tableView.rx.modelSelected(GCEvent.self)
             .bind(to: viewModel.selectEvent)
             .disposed(by: disposeBag)
     }

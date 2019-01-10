@@ -11,10 +11,11 @@ import XCTest
 
 class EventTests: XCTestCase {
 
-    var event: Event!
+    var event: GCEvent!
 
     override func tearDown() {
         event = nil
+        super.tearDown()
     }
 
     func testInitEventFromJSON() {
@@ -32,7 +33,7 @@ class EventTests: XCTestCase {
         }
         
         do {
-            event = try JSONDecoder().decode(Event.self, from: jsonData)
+            event = try JSONDecoder().decode(GCEvent.self, from: jsonData)
             XCTAssertEqual(event.id, "1")
             XCTAssertEqual(event.people.count, 5)
             XCTAssertEqual(event.latitude, -30.0392981)

@@ -10,14 +10,14 @@ import Foundation
 import RxSwift
 
 protocol EventsListServiceProtocol {
-    func getEvents() -> Observable<[Event]>
+    func getEvents() -> Observable<[GCEvent]>
 }
 
 class EventsListService: EventsListServiceProtocol {
     
     private let appService = AppService()
     
-    func getEvents() -> Observable<[Event]> {
+    func getEvents() -> Observable<[GCEvent]> {
         return appService.request(path: "events/", method: .GET)
     }
 }

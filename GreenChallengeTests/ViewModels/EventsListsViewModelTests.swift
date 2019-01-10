@@ -9,36 +9,57 @@
 @testable import GreenChallenge
 import XCTest
 import RxSwift
+import RxTest
 
 class EventsListsViewModelTests: XCTestCase {
 
+    var viewModel: EventsListViewModel!
+    var testScheduler: TestScheduler!
+    var disposeBag: DisposeBag!
+    var service: EventsListServiceMock!
+    
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        super.setUp()
+        testScheduler = TestScheduler(initialClock: 0)
+        disposeBag = DisposeBag()
+        service = EventsListServiceMock()
+        viewModel = EventsListViewModel(service: service)
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        viewModel = nil
+        service = nil
+        super.tearDown()
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testInitViewModel() {
+        viewModel = EventsListViewModel(service: service)
+        
+        testScheduler.createHotObservable([next(300, ())])
+            .bind(to: viewModel.reload)
+            .disposed(by: disposeBag)
+        
+        let result = testScheduler.start { self.viewModel.events.map({ $0[0].id }) }
+        XCTAssertEqual(result.events, [next(300, "1")])
     }
 
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testSelectEvent() {
+        let event = service.event!
+        
+        testScheduler.createHotObservable([next(300, event)])
+            .bind(to: viewModel.selectEvent)
+            .disposed(by: disposeBag)
+        
+        let result = testScheduler.start { self.viewModel.openEventDetail }
+        XCTAssertEqual(result.events, [next(300, "1")])
     }
-
 }
 
 class EventsListServiceMock: EventsListServiceProtocol {
     
-    func getEvents() -> Observable<[Event]> {
+    lazy var event: GCEvent? = {
         guard let jsonURL = Bundle(for: EventsListServiceMock.self).url(forResource: "EventStub", withExtension: "json") else {
-            return
+            return nil
         }
         
         var jsonData = Data()
@@ -49,11 +70,18 @@ class EventsListServiceMock: EventsListServiceProtocol {
         }
         
         do {
-            let event = try JSONDecoder().decode(Event.self, from: jsonData)
+            let event = try JSONDecoder().decode(GCEvent.self, from: jsonData)
             
-            return Observable.just([event])
+            return event
         } catch {
-            
+            return nil
         }
+    }()
+    
+    func getEvents() -> Observable<[GCEvent]> {
+        if let event = event {
+            return Observable.just([event])
+        }
+        return .empty()
     }
 }
