@@ -1,8 +1,8 @@
 //
-//  EventsListsViewModelTests.swift
+//  EventDetailViewModelTests.swift
 //  GreenChallengeTests
 //
-//  Created by Matheus Alano on 09/01/19.
+//  Created by Matheus Alano on 10/01/19.
 //  Copyright © 2019 Matheus Alano. All rights reserved.
 //
 
@@ -11,19 +11,19 @@ import XCTest
 import RxSwift
 import RxTest
 
-class EventsListsViewModelTests: XCTestCase {
+class EventDetailViewModelTests: XCTestCase {
 
-    var viewModel: EventsListViewModel!
+    var viewModel: EventDetailViewModel!
     var testScheduler: TestScheduler!
     var disposeBag: DisposeBag!
-    var service: EventsListServiceMock!
+    var service: EventDetailServiceMock!
     
     override func setUp() {
         super.setUp()
         testScheduler = TestScheduler(initialClock: 0)
         disposeBag = DisposeBag()
-        service = EventsListServiceMock()
-        viewModel = EventsListViewModel(service: service)
+        service = EventDetailServiceMock()
+        viewModel = EventDetailViewModel(eventId: "", service: service)
     }
 
     override func tearDown() {
@@ -31,32 +31,32 @@ class EventsListsViewModelTests: XCTestCase {
         service = nil
         super.tearDown()
     }
-
+    
     func testInitViewModel() {
         testScheduler.createHotObservable([next(300, ())])
             .bind(to: viewModel.reload)
             .disposed(by: disposeBag)
         
-        let result = testScheduler.start { self.viewModel.events.map({ $0[0].id }) }
+        let result = testScheduler.start { self.viewModel.event.map({ $0.id }) }
         XCTAssertEqual(result.events, [next(300, "1")])
     }
-
-    func testSelectEvent() {
-        let event = service.event!
+    
+    func testCheckIn() {
+        let user = User(name: "Matheus", email: "matheus@mail.com")
         
-        testScheduler.createHotObservable([next(300, event)])
-            .bind(to: viewModel.selectEvent)
+        testScheduler.createHotObservable([next(300, user)])
+            .bind(to: viewModel.checkIn)
             .disposed(by: disposeBag)
         
-        let result = testScheduler.start { self.viewModel.openEventDetail }
-        XCTAssertEqual(result.events, [next(300, "1")])
+        let result = testScheduler.start { self.viewModel.didCheckIn }
+        XCTAssertEqual(result.events, [next(300, true)])
     }
 }
 
-class EventsListServiceMock: EventsListServiceProtocol {
+class EventDetailServiceMock: EventDetailServiceProtocol {
     
     lazy var event: GCEvent? = {
-        guard let jsonURL = Bundle(for: EventsListServiceMock.self).url(forResource: "EventStub", withExtension: "json") else {
+        guard let jsonURL = Bundle(for: EventDetailServiceMock.self).url(forResource: "EventStub", withExtension: "json") else {
             return nil
         }
         
@@ -76,10 +76,14 @@ class EventsListServiceMock: EventsListServiceProtocol {
         }
     }()
     
-    func getEvents() -> Observable<[GCEvent]> {
+    func getEvent(by id: String) -> Observable<GCEvent> {
         if let event = event {
-            return Observable.just([event])
+            return Observable.just(event)
         }
         return .empty()
+    }
+    
+    func checkIn(to eventId: String, name: String, email: String) -> Observable<Bool> {
+        return Observable.just(true)
     }
 }

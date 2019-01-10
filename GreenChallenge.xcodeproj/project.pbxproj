@@ -18,6 +18,7 @@
 		1703B07C21E7EABF001B0509 /* EventDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1703B07B21E7EABF001B0509 /* EventDetailService.swift */; };
 		1703B07F21E7EC34001B0509 /* EventDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1703B07E21E7EC34001B0509 /* EventDetailViewModel.swift */; };
 		1703B08221E7F0D8001B0509 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1703B08121E7F0D8001B0509 /* User.swift */; };
+		1703B08421E7FDC1001B0509 /* EventDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1703B08321E7FDC1001B0509 /* EventDetailViewModelTests.swift */; };
 		171C2FBC21E690A60057A3D3 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 171C2FB921E690A60057A3D3 /* RxCocoa.framework */; };
 		171C2FBD21E690A60057A3D3 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 171C2FBA21E690A60057A3D3 /* RxSwift.framework */; };
 		171C2FBE21E690A60057A3D3 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 171C2FBB21E690A60057A3D3 /* SnapKit.framework */; };
@@ -56,6 +57,7 @@
 		1703B07B21E7EABF001B0509 /* EventDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailService.swift; sourceTree = "<group>"; };
 		1703B07E21E7EC34001B0509 /* EventDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewModel.swift; sourceTree = "<group>"; };
 		1703B08121E7F0D8001B0509 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1703B08321E7FDC1001B0509 /* EventDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewModelTests.swift; sourceTree = "<group>"; };
 		171C2FB921E690A60057A3D3 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		171C2FBA21E690A60057A3D3 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		171C2FBB21E690A60057A3D3 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				171C2FE121E6C8E70057A3D3 /* EventsListsViewModelTests.swift */,
+				1703B08321E7FDC1001B0509 /* EventDetailViewModelTests.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -478,6 +481,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				171C2FDD21E6C6E20057A3D3 /* EventTests.swift in Sources */,
+				1703B08421E7FDC1001B0509 /* EventDetailViewModelTests.swift in Sources */,
 				171C2FE221E6C8E70057A3D3 /* EventsListsViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
