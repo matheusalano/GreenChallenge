@@ -24,10 +24,20 @@ class EventsListCoordinator: BaseCoordinator<Void> {
         
         eventsListVC.viewModel = viewModel
         
+        viewModel.openEventDetail.subscribe(onNext: { [weak self] in
+            self?.showEventDetail(by: $0, in: navigationController)
+        }).disposed(by: disposeBag)
+        
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
         
         return Observable.never()
     }
     
+    private func showEventDetail(by id: String, in navigationController: UINavigationController) {
+        let viewController = UIViewController()
+        viewController.view.backgroundColor = .red
+        
+        navigationController.pushViewController(viewController, animated: true)
+    }
 }

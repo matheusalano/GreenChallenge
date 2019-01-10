@@ -12,6 +12,16 @@ import RxCocoa
 
 class EventsListViewController: UIViewController {
 
+    private lazy var tableView: UITableView = {
+        let myTableView = UITableView()
+        myTableView.rowHeight = 100
+        myTableView.refreshControl = refreshControl
+        myTableView.tableFooterView = UIView()
+        myTableView.separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        myTableView.register(EventTableViewCell.self, forCellReuseIdentifier: EventTableViewCell.description())
+        return myTableView
+    }()
+    
     var viewModel: EventsListViewModel
     private let disposeBag = DisposeBag()
     private let refreshControl = UIRefreshControl()
@@ -28,8 +38,7 @@ class EventsListViewController: UIViewController {
     override func loadView() {
         super.loadView()
         
-        view.backgroundColor = .blue
-        
+        setupUI()
         setupBindinds()
     }
     
@@ -38,17 +47,30 @@ class EventsListViewController: UIViewController {
         
         refreshControl.sendActions(for: .valueChanged)
     }
+    
+    private func setupUI() {
+        view.addSubview(tableView)
+        
+        tableView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+    }
 
     private func setupBindinds() {
         viewModel.events
-            .subscribe({ (events) in
-            print(events)
-            }).disposed(by: disposeBag)
+        .observeOn(MainScheduler.instance)
+            .do(onNext: { [weak self] _ in self?.refreshControl.endRefreshing() })
+            .bind(to: tableView.rx.items(cellIdentifier: EventTableViewCell.description(), cellType: EventTableViewCell.self)) { (_, event, cell) in
+                cell.configure(event: event)
+        }
+        .disposed(by: disposeBag)
         
         refreshControl.rx.controlEvent(.valueChanged)
             .bind(to: viewModel.reload)
             .disposed(by: disposeBag)
         
+        tableView.rx.modelSelected(Event.self)
+            .bind(to: viewModel.selectEvent)
+            .disposed(by: disposeBag)
     }
-    
 }
