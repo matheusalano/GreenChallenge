@@ -15,6 +15,9 @@
 		1703B07321E7DC42001B0509 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 171C2FBB21E690A60057A3D3 /* SnapKit.framework */; };
 		1703B07521E7DDA7001B0509 /* RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1703B07421E7DDA6001B0509 /* RxTest.framework */; };
 		1703B07821E7E77F001B0509 /* UIViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1703B07721E7E77E001B0509 /* UIViewController+Alerts.swift */; };
+		1703B07C21E7EABF001B0509 /* EventDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1703B07B21E7EABF001B0509 /* EventDetailService.swift */; };
+		1703B07F21E7EC34001B0509 /* EventDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1703B07E21E7EC34001B0509 /* EventDetailViewModel.swift */; };
+		1703B08221E7F0D8001B0509 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1703B08121E7F0D8001B0509 /* User.swift */; };
 		171C2FBC21E690A60057A3D3 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 171C2FB921E690A60057A3D3 /* RxCocoa.framework */; };
 		171C2FBD21E690A60057A3D3 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 171C2FBA21E690A60057A3D3 /* RxSwift.framework */; };
 		171C2FBE21E690A60057A3D3 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 171C2FBB21E690A60057A3D3 /* SnapKit.framework */; };
@@ -50,6 +53,9 @@
 		1703B06D21E7D8DD001B0509 /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxDataSources.framework; path = Carthage/Build/iOS/RxDataSources.framework; sourceTree = "<group>"; };
 		1703B07421E7DDA6001B0509 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
 		1703B07721E7E77E001B0509 /* UIViewController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alerts.swift"; sourceTree = "<group>"; };
+		1703B07B21E7EABF001B0509 /* EventDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailService.swift; sourceTree = "<group>"; };
+		1703B07E21E7EC34001B0509 /* EventDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewModel.swift; sourceTree = "<group>"; };
+		1703B08121E7F0D8001B0509 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		171C2FB921E690A60057A3D3 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		171C2FBA21E690A60057A3D3 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		171C2FBB21E690A60057A3D3 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
@@ -110,6 +116,40 @@
 				1703B07721E7E77E001B0509 /* UIViewController+Alerts.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1703B07921E7EA34001B0509 /* EventDetail */ = {
+			isa = PBXGroup;
+			children = (
+				1703B08021E7F0CE001B0509 /* Model */,
+				1703B07D21E7EC00001B0509 /* ViewModel */,
+				1703B07A21E7EAB0001B0509 /* Service */,
+			);
+			path = EventDetail;
+			sourceTree = "<group>";
+		};
+		1703B07A21E7EAB0001B0509 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				1703B07B21E7EABF001B0509 /* EventDetailService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		1703B07D21E7EC00001B0509 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1703B07E21E7EC34001B0509 /* EventDetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		1703B08021E7F0CE001B0509 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1703B08121E7F0D8001B0509 /* User.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		171C2FB821E690A60057A3D3 /* Frameworks */ = {
@@ -254,6 +294,7 @@
 			isa = PBXGroup;
 			children = (
 				171C2FC221E6920C0057A3D3 /* App */,
+				1703B07921E7EA34001B0509 /* EventDetail */,
 				171C2FC921E694270057A3D3 /* EventsList */,
 				171C2FC521E692980057A3D3 /* General */,
 				171C2FC121E691FD0057A3D3 /* Resources */,
@@ -419,7 +460,10 @@
 				1703B07821E7E77F001B0509 /* UIViewController+Alerts.swift in Sources */,
 				171C2FD621E69E820057A3D3 /* EventsListViewModel.swift in Sources */,
 				171C2FC421E692520057A3D3 /* AppCoordinator.swift in Sources */,
+				1703B07F21E7EC34001B0509 /* EventDetailViewModel.swift in Sources */,
 				171C2FC721E692A50057A3D3 /* BaseCoordinator.swift in Sources */,
+				1703B08221E7F0D8001B0509 /* User.swift in Sources */,
+				1703B07C21E7EABF001B0509 /* EventDetailService.swift in Sources */,
 				1740A99E21E68EFA00A7CABC /* AppDelegate.swift in Sources */,
 				171C2FD021E699AE0057A3D3 /* EventsListService.swift in Sources */,
 				171C2FCB21E694440057A3D3 /* EventsListCoordinator.swift in Sources */,

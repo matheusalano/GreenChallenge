@@ -20,6 +20,7 @@ final class EventsListViewModel {
     let events: Observable<[GCEvent]>
     let alert: Observable<String>
     
+    // MARK: - Init
     init(service: EventsListServiceProtocol = EventsListService()) {
         
         let _reload = PublishSubject<Void>()

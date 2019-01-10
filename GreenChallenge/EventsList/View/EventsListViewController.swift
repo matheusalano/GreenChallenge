@@ -45,6 +45,7 @@ class EventsListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        refreshControl.beginRefreshing()
         refreshControl.sendActions(for: .valueChanged)
     }
     

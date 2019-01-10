@@ -55,4 +55,30 @@ class AppService {
                 }
             })
     }
+    
+    func requestNoReturn(path: String, method: HTTPMethod, parameters: [String: Any]? = nil) -> Observable<Bool> {
+        guard let url = URL(string: baseUrl + path) else { return Observable.error(ServiceError.invalidURL) }
+        var urlRequest = URLRequest(url: url)
+        
+        if let parameters = parameters {
+            do {
+                urlRequest.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
+            } catch _ {
+                return Observable.error(ServiceError.cannotParseParameters)
+            }
+            urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        }
+        
+        urlRequest.httpMethod = method.rawValue
+        
+        return session.rx
+            .json(request: urlRequest)
+            .flatMap({ json throws -> Observable<Bool> in
+                guard let json = json as? [String: Any], let code = json["code"] as? String else {
+                    return Observable.error(ServiceError.cannotParse)
+                }
+                
+                return Observable.just(code.hasPrefix("2"))
+            })
+    }
 }
