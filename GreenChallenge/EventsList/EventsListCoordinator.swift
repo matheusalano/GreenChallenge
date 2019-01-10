@@ -18,8 +18,11 @@ class EventsListCoordinator: BaseCoordinator<Void> {
     }
     
     override func start() -> Observable<Void> {
-        let viewController = UIViewController()
-        let navigationController = UINavigationController(rootViewController: viewController)
+        let viewModel = EventsListViewModel()
+        let eventsListVC = EventsListViewController(viewModel: viewModel)
+        let navigationController = UINavigationController(rootViewController: eventsListVC)
+        
+        eventsListVC.viewModel = viewModel
         
         window.rootViewController = navigationController
         window.makeKeyAndVisible()

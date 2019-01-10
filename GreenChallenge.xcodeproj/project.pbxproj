@@ -16,6 +16,8 @@
 		171C2FCD21E695E60057A3D3 /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171C2FCC21E695E60057A3D3 /* AppService.swift */; };
 		171C2FD021E699AE0057A3D3 /* EventsListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171C2FCF21E699AE0057A3D3 /* EventsListService.swift */; };
 		171C2FD321E69A560057A3D3 /* EventsListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171C2FD221E69A560057A3D3 /* EventsListModel.swift */; };
+		171C2FD621E69E820057A3D3 /* EventsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171C2FD521E69E820057A3D3 /* EventsListViewModel.swift */; };
+		171C2FD921E6B8090057A3D3 /* EventsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171C2FD821E6B8090057A3D3 /* EventsListViewController.swift */; };
 		1740A99E21E68EFA00A7CABC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1740A99D21E68EFA00A7CABC /* AppDelegate.swift */; };
 		1740A9A521E68EFB00A7CABC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1740A9A421E68EFB00A7CABC /* Assets.xcassets */; };
 		1740A9A821E68EFB00A7CABC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1740A9A621E68EFB00A7CABC /* LaunchScreen.storyboard */; };
@@ -42,6 +44,8 @@
 		171C2FCC21E695E60057A3D3 /* AppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
 		171C2FCF21E699AE0057A3D3 /* EventsListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsListService.swift; sourceTree = "<group>"; };
 		171C2FD221E69A560057A3D3 /* EventsListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsListModel.swift; sourceTree = "<group>"; };
+		171C2FD521E69E820057A3D3 /* EventsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsListViewModel.swift; sourceTree = "<group>"; };
+		171C2FD821E6B8090057A3D3 /* EventsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsListViewController.swift; sourceTree = "<group>"; };
 		1740A99A21E68EFA00A7CABC /* GreenChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreenChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1740A99D21E68EFA00A7CABC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1740A9A421E68EFB00A7CABC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -123,6 +127,8 @@
 			isa = PBXGroup;
 			children = (
 				171C2FD121E69A480057A3D3 /* Model */,
+				171C2FD721E6B7F10057A3D3 /* View */,
+				171C2FD421E69E6D0057A3D3 /* ViewModel */,
 				171C2FCE21E6999F0057A3D3 /* Service */,
 				171C2FCA21E694440057A3D3 /* EventsListCoordinator.swift */,
 			);
@@ -143,6 +149,22 @@
 				171C2FD221E69A560057A3D3 /* EventsListModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		171C2FD421E69E6D0057A3D3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				171C2FD521E69E820057A3D3 /* EventsListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		171C2FD721E6B7F10057A3D3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				171C2FD821E6B8090057A3D3 /* EventsListViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		1740A99121E68EFA00A7CABC = {
@@ -327,11 +349,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				171C2FCD21E695E60057A3D3 /* AppService.swift in Sources */,
+				171C2FD621E69E820057A3D3 /* EventsListViewModel.swift in Sources */,
 				171C2FC421E692520057A3D3 /* AppCoordinator.swift in Sources */,
 				171C2FC721E692A50057A3D3 /* BaseCoordinator.swift in Sources */,
 				1740A99E21E68EFA00A7CABC /* AppDelegate.swift in Sources */,
 				171C2FD021E699AE0057A3D3 /* EventsListService.swift in Sources */,
 				171C2FCB21E694440057A3D3 /* EventsListCoordinator.swift in Sources */,
+				171C2FD921E6B8090057A3D3 /* EventsListViewController.swift in Sources */,
 				171C2FD321E69A560057A3D3 /* EventsListModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -486,6 +510,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S267HCZ2HP;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -499,6 +524,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.matheusalano.GreenChallenge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -508,6 +534,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S267HCZ2HP;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -521,6 +548,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.matheusalano.GreenChallenge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
