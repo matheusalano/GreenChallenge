@@ -38,6 +38,7 @@ class EventsListViewController: UIViewController {
     override func loadView() {
         super.loadView()
         
+        title = String.localized(by: "events")
         setupUI()
         setupBindinds()
     }

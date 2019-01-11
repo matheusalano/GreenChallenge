@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  GreenChallenge
+
+  Created by Matheus Alano on 10/01/19.
+  Copyright © 2019 Matheus Alano. All rights reserved.
+*/
+
+"events" = "Eventos";
+"people" = "Pessoas";
+"coupons" = "Cupons";
+"discountOf" = "Desconto de ";
+"checkIn" = "Check-in";
+"checkedIn" = "Check-in realizado";
+"checkInError" = "Check-in não está funcionando. Tente novamente mais tarde.";
+"name" = "Nome";
+"email" = "E-mail";
+"error" = "Erro";
+"cancel" = "Cancelar";

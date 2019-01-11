@@ -35,9 +35,9 @@ class EventsListCoordinator: BaseCoordinator<Void> {
     }
     
     private func showEventDetail(by id: String, in navigationController: UINavigationController) {
-        let viewController = UIViewController()
-        viewController.view.backgroundColor = .red
+        let viewModel = EventDetailViewModel(eventId: id)
+        let eventDetailVC = EventDetailViewController(viewModel: viewModel)
         
-        navigationController.pushViewController(viewController, animated: true)
+        navigationController.pushViewController(eventDetailVC, animated: true)
     }
 }
